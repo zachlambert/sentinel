@@ -1,0 +1,27 @@
+name: examples
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  logger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@master
+      - name: build example
+        run: make build
+      - name: run example
+        run: build/example_logger
+  profiler:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@master
+      - name: build example
+        run: make build
+      - name: run example
+        run: build/example_profiler
